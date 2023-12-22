@@ -1,0 +1,16 @@
+---
+repository:
+  labels:
+    - name: area/ci
+      color: 72ccf3
+      description: Issue relates to CI
+    - name: area/kubernetes
+      color: 72ccf3
+      description: Issue relates to Kubernetes
+
+    - name: renovate/container
+      color: ffc300
+      description: Issue relates to a Renovate container update
+    - name: renovate/helm
+      color: ffc300
+      description: Issue relates to a Renovate helm update
