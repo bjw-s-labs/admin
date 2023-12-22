@@ -2,15 +2,15 @@
 repository:
   labels:
     - name: area/ci
-      color: 72ccf3
+      color: 0e8a16
       description: Issue relates to CI
     - name: area/kubernetes
-      color: 72ccf3
+      color: 0e8a16
       description: Issue relates to Kubernetes
 
-    - name: renovate/container
+    - name: cluster/main
       color: ffc300
-      description: Issue relates to a Renovate container update
-    - name: renovate/helm
+      description: Issue relates to the "main" cluster
+    - name: cluster/nas
       color: ffc300
-      description: Issue relates to a Renovate helm update
+      description: Issue relates to the "nas" cluster
