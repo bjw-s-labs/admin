@@ -25,12 +25,19 @@ jobs:
     name: Renovate
     runs-on: ubuntu-latest
     steps:
+      - name: Decode the GitHub App Private Key
+        id: decode
+        run: |
+          private_key=$(echo "${{ secrets.REPODUSTER_APP_KEY }}" | base64 -d | awk 'BEGIN {ORS="\\n"} {print}' | head -c -2) &> /dev/null
+          echo "::add-mask::$private_key"
+          echo "private-key=$private_key" >> "$GITHUB_OUTPUT"
+
       - name: Generate Token
         uses: actions/create-github-app-token@v1
         id: app-token
         with:
           app-id: ${{ secrets.REPODUSTER_APP_ID }}
-          private-key: ${{ secrets.REPODUSTER_APP_KEY }}
+          private-key: ${{ steps.decode.outputs.private-key }}
           owner: ${{ github.repository_owner }}
 
       - name: Checkout
